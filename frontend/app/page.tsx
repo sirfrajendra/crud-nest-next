@@ -16,7 +16,7 @@ export default function Home() {
     loadUsers();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await createUser({ name, email });
     setName("");
@@ -24,37 +24,70 @@ export default function Home() {
     loadUsers();
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     await deleteUser(id);
     loadUsers();
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>User CRUD</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-black p-6">
+      <div className="w-full max-w-2xl bg-white dark:bg-zinc-900 rounded-2xl shadow-lg p-6 space-y-6">
+        
+        {/* Title */}
+        <h1 className="text-2xl font-bold text-center">
+          User CRUD App
+        </h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col md:flex-row gap-3"
+        >
+          <input
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-800 dark:border-zinc-700"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-      <ul>
-        {users.map((u) => (
-          <li key={u.id}>
-            {u.name} - {u.email}
-            <button onClick={() => handleDelete(u.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+          <input
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-800 dark:border-zinc-700"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+            Add
+          </button>
+        </form>
+
+        {/* User List */}
+        <ul className="space-y-3">
+          {users.map((u: any) => (
+            <li
+              key={u.id}
+              className="flex items-center justify-between bg-gray-50 dark:bg-zinc-800 px-4 py-3 rounded-lg"
+            >
+              <div>
+                <p className="font-medium">{u.name}</p>
+                <p className="text-sm text-gray-500">{u.email}</p>
+              </div>
+
+              <button
+                onClick={() => handleDelete(u.id)}
+                className="text-red-500 hover:text-red-700 transition"
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+
+      </div>
     </div>
   );
 }
