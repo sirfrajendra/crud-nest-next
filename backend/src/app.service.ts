@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Full Stack Developer Challenge - Backend';
+    return 'Full Stack Developer Challenge';
   }
 }
