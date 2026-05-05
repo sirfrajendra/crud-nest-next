@@ -35,7 +35,7 @@ export default function Home() {
         
         {/* Title */}
         <h1 className="text-2xl font-bold text-center">
-          User CRUD App
+          User Details
         </h1>
 
         {/* Form */}
