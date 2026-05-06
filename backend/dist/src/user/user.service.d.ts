@@ -1,5 +1,6 @@
 import { PrismaService } from '../prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 export declare class UserService {
     private prisma;
     constructor(prisma: PrismaService);
@@ -18,7 +19,7 @@ export declare class UserService {
         name: string;
         email: string;
     } | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
-    update(id: number, data: CreateUserDto): import("@prisma/client").Prisma.Prisma__UserClient<{
+    update(id: number, data: UpdateUserDto): import("@prisma/client").Prisma.Prisma__UserClient<{
         id: number;
         name: string;
         email: string;
