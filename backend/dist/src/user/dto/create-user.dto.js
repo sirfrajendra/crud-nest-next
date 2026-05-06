@@ -14,6 +14,8 @@ const class_validator_1 = require("class-validator");
 class CreateUserDto {
     name;
     email;
+    title;
+    address;
 }
 exports.CreateUserDto = CreateUserDto;
 __decorate([

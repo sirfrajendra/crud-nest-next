@@ -8,25 +8,42 @@ export declare class UserController {
         id: number;
         name: string;
         email: string;
+        title: string | null;
+        address: string | null;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     findAll(): import("@prisma/client").Prisma.PrismaPromise<{
         id: number;
         name: string;
         email: string;
+        title: string | null;
+        address: string | null;
     }[]>;
     findOne(id: string): import("@prisma/client").Prisma.Prisma__UserClient<{
         id: number;
         name: string;
         email: string;
+        title: string | null;
+        address: string | null;
     } | null, null, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     update(id: string, body: UpdateUserDto): import("@prisma/client").Prisma.Prisma__UserClient<{
         id: number;
         name: string;
         email: string;
+        title: string | null;
+        address: string | null;
+    }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    updatePartial(id: string, body: UpdateUserDto): import("@prisma/client").Prisma.Prisma__UserClient<{
+        id: number;
+        name: string;
+        email: string;
+        title: string | null;
+        address: string | null;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
     remove(id: string): import("@prisma/client").Prisma.Prisma__UserClient<{
         id: number;
         name: string;
         email: string;
+        title: string | null;
+        address: string | null;
     }, never, import("@prisma/client/runtime/client").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
 }

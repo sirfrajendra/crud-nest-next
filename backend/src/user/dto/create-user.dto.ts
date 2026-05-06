@@ -6,4 +6,8 @@ export class CreateUserDto {
 
   @IsEmail()
   email!: string;
+
+  title?: string;
+
+  address?: string;
 }

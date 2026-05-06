@@ -12,6 +12,14 @@ export const createUser = async (data) => {
   });
 };
 
+export const updateUser = async (id, data) => {
+  return fetch(`${API}/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+};
+
 export const deleteUser = async (id) => {
   return fetch(`${API}/${id}`, {
     method: "DELETE",
